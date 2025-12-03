@@ -2,11 +2,7 @@ import streamlit as st
 import yfinance as yf
 
 st.set_page_config(page_title="Stock App", page_icon="📈")
-
 st.title("Stock Overview App")
-
-# sidebar page selector
-from streamlit_option_menu import option_menu
 
 with st.sidebar:
     st.write("### Pages")
@@ -16,6 +12,8 @@ with st.sidebar:
         st.session_state.page = "Financials"
     if st.button("Chart"):
         st.session_state.page = "Chart"
+
+page = st.session_state.page
 
 # store ticker across pages
 if "ticker" not in st.session_state:
