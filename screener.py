@@ -49,7 +49,6 @@ else:
     elif page == "Financials":
         st.header("Financials & Multiples")
 
-        # ---- Basic Info ----
         st.write("### Basic Info")
         st.write("**Current Price:**", info.get("currentPrice", "N/A"))
         st.write("**Previous Close:**", info.get("previousClose", "N/A"))
@@ -59,7 +58,6 @@ else:
         st.write("**Float Shares:**", info.get("floatShares", "N/A"))
         st.write("**Average Volume:**", info.get("averageVolume", "N/A"))
 
-        # ---- Valuation Multiples ----
         st.write("### Valuation Multiples")
         st.write("**P/E Ratio:**", info.get("trailingPE", "N/A"))
         st.write("**Forward P/E:**", info.get("forwardPE", "N/A"))
