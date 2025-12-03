@@ -6,10 +6,16 @@ st.set_page_config(page_title="Stock App", page_icon="📈")
 st.title("Stock Overview App")
 
 # sidebar page selector
-page = st.sidebar.radio(
-    "Pages",
-    ["Company Overview", "Financials", "Chart"]
-)
+from streamlit_option_menu import option_menu
+
+with st.sidebar:
+    page = option_menu(
+        "Navigation",
+        ["Company Overview", "Financials", "Chart"],
+        icons=["building", "bar-chart", "graph-up"],  # optional
+        menu_icon="cast",
+        default_index=0
+    )
 
 # store ticker across pages
 if "ticker" not in st.session_state:
