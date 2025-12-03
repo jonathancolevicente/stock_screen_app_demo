@@ -9,17 +9,14 @@ st.title("Stock Overview App")
 from streamlit_option_menu import option_menu
 
 with st.sidebar:
-    page = option_menu(
-        "Navigation",
-        ["Company Overview", "Financials", "Chart"],
-        icons=["building", "bar-chart", "graph-up"],  # optional
-        menu_icon="cast",
-        default_index=0
-    )
+    st.write("### Pages")
+    if st.button("Company Overview"):
+        st.session_state.page = "Company Overview"
+    if st.button("Financials"):
+        st.session_state.page = "Financials"
+    if st.button("Chart"):
+        st.session_state.page = "Chart"
 
-# store ticker across pages
-if "ticker" not in st.session_state:
-    st.session_state["ticker"] = ""
 
 ticker = st.text_input(
     "Enter a stock ticker (example: AAPL)",
