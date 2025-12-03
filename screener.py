@@ -17,6 +17,9 @@ with st.sidebar:
     if st.button("Chart"):
         st.session_state.page = "Chart"
 
+# store ticker across pages
+if "ticker" not in st.session_state:
+    st.session_state["ticker"] = ""
 
 ticker = st.text_input(
     "Enter a stock ticker (example: AAPL)",
