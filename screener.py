@@ -4,20 +4,21 @@ import yfinance as yf
 st.set_page_config(page_title="Stock App", page_icon="📈")
 st.title("Stock Overview App")
 
+if "page" not in st.session_state:
+    st.session_state["page"] = "Company Overview"
+
+if "ticker" not in st.session_state:
+    st.session_state["ticker"] = ""
+
 with st.sidebar:
     st.write("### Pages")
     if st.button("Company Overview"):
-        st.session_state.page = "Company Overview"
+        st.session_state["page"]= "Company Overview"
     if st.button("Financials"):
-        st.session_state.page = "Financials"
+        st.session_state["page"] = "Financials"
     if st.button("Chart"):
-        st.session_state.page = "Chart"
-
-page = st.session_state.page
-
-# store ticker across pages
-if "ticker" not in st.session_state:
-    st.session_state["ticker"] = ""
+        st.session_state["page"] = "Chart"
+    page = st.session_state["page"]
 
 ticker = st.text_input(
     "Enter a stock ticker (example: AAPL)",
