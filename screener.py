@@ -6,7 +6,7 @@ st.set_page_config(page_title="Stock App", page_icon="📈")
 st.title("Stock Overview App")
 
 # sidebar page selector
-page = st.sidebar.selectbox(
+page = st.sidebar.radio(
     "Pages",
     ["Company Overview", "Financials", "Chart"]
 )
